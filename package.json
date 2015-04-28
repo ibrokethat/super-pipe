@@ -1,0 +1,38 @@
+{
+  "name": "@ibrokethat/super-pipe",
+  "description": "super pipelines",
+  "version": "1.0.0",
+  "author": "si@ibrokethat.com",
+  "contributors": [
+    { "name": "Simon Jefford", "email": "si@ibrokethat.com" }
+  ],
+  "dependencies": {
+    "co": "latest",
+    "@ibrokethat/super-iter": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel": "^4.5.5",
+    "chai": "latest",
+    "mocha": "latest",
+    "sinon": "latest"
+  },
+  "keywords": [
+    "ibrokethat",
+    "pipeline",
+    "es6",
+    "Promises"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ibrokethat/super-pipe"
+  },
+  "main": "lib/pipe.js",
+  "scripts": {
+    "prepublish": "npm prune && npm run build",
+    "build":"./node_modules/.bin/babel --blacklist regenerator,es6.forOf src --out-dir lib" ,
+    "test": "./node_modules/.bin/mocha --compilers js:./test/babel --blacklist regenerator,es6.forOf --harmony --colors --recursive -R spec --ui bdd ./test/**/*.test.js --NODE_ENV=test"
+  },
+  "engines": {
+    "node": "0.12.x"
+  }
+}
